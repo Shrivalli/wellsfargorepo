@@ -1,0 +1,164 @@
+IDE - VS 2022 (.NET core 7)  - framework
+
+1. Framework (SDK) - base class libraries, Runtime Environment (CLR) - Common Language Runtime
+2. Languages - C#, F#, VB.NET, J#
+
+C# source code --> C# compiler --> MSIL/CIL (common Intermediate Language) --> CLR(JIT) -->Native Code
+VB.NET source code --> VB Compiler --> MSIL/CIL
+
+
+.NET F/w - windows OS
+.NET core - windows, mac, linux
+
+
+types of applications :
+
+1. Desktop - 
+	1. Console app(without GUI)  and 
+        2.WPF (with GUI)
+
+2. Web Application - 
+	1. Web App - Collection of web pages (website) (Model and View)
+	2. Web App MVC - Model View Controller (handles all the request) - SOC
+	3. Web API - Model Controller --> plain text format
+
+
+
+Entity framework core:
+
+ORM - Object Relation Mapping
+
+Two approaches
+1. DB first approach - table gets mapped to a entity class - context is created
+2. Code first approach - class gets mapped to a table and db is created 
+
+
+Swagger
+
+Documentation cum testing tool
+
+
+React :
+
+cmd> node -v
+cmd > npm -v
+
+cmd> npx create-react-app firstproject
+
+cmd> dir
+
+cmd> cd firstproject
+
+cmd> npm install react-router-dom
+
+cmd>npm start --> localhost:3000
+
+
+EFCore: 
+
+1. Entity Framework Core
+2. EF core Sql
+3. EF Core tools
+
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=loanwf;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
+In appsettings.json:
+ "ConnectionStrings": {
+      "DefaultConnection": "Server=Server=(localdb)\MSSQLLocalDB;Database=Fareportal;Trusted_Connection=True;"
+    },
+
+ Program.cs
+ builder.Services.AddDbContext<FareportalContext>(options =>
+       options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
