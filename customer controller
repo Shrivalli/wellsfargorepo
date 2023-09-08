@@ -1,0 +1,73 @@
+using CustomerAPI.Models;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
+
+namespace CustomerAPI.Controllers
+{
+    [Route("api/[controller]")]
+    [ApiController]
+    public class CustomerController : ControllerBase
+    {
+
+        private readonly LoanwfContext _context;
+
+        //Dependency injection
+        public CustomerController(LoanwfContext context)
+        {
+            _context = context;
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAllCustomers()
+        {
+            return Ok(await _context.Customers.ToListAsync());
+        }
+
+        // [HttpGet("{id}")]
+        [HttpGet]
+        [Route("getcustbyid")]
+        public async Task<ActionResult> GetCustomerById(int id)
+        {
+            return Ok(await _context.Customers.FindAsync(id));
+        }
+
+        [HttpPost]
+        public async Task<ActionResult> AddNewCustomer(Customer c)
+        {
+            _context.Customers.Add(c);
+           await _context.SaveChangesAsync();
+               return Ok();
+        }
+
+        [HttpPut]
+        public async Task<ActionResult> EditCustomer(int id,Customer c)
+        {
+            _context.Customers.Update(c);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult> DeleteCustomer(int id)
+        {
+            Customer c = await _context.Customers.FindAsync(id);
+            _context.Customers.Remove(c);
+            await _context.SaveChangesAsync();
+            return Ok();
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    }
+}
