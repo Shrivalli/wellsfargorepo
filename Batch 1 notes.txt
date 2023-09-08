@@ -103,6 +103,31 @@ namespace EfCoreEg.Controllers
 }
 
 
+Database code:
+
+create database loanwfb2
+
+use loanwfb2
+
+drop table customer
+create table Customer
+(
+cid int primary key identity(500,1),
+cname varchar(20),
+age int,
+city varchar(20),
+)
+insert into customer values('Raghav',45,'chennai')
+create table account
+(
+acid int primary key identity(400,1),
+custid int references customer(cid),
+balance float,
+doc date default getdate()
+)
+
+
+
 EF Core steps:
 
 1. Create API
@@ -124,45 +149,6 @@ In appsettings.json:
  Program.cs
  builder.Services.AddDbContext<FareportalContext>(options =>
        options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
