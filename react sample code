@@ -1,0 +1,45 @@
+import { useState } from "react";
+import React from 'react';
+
+const LoginPage =()=>{
+
+    const [email,setEmail]=useState('');
+    const[pwd,setPwd]=useState('');
+
+    const handleemail =(event)=>{
+        
+        setEmail(event.target.value);
+    }
+    const handlepwd =(event)=>{
+        setPwd(event.target.value);
+    }
+
+    const handleSubmit =(event)=>{
+        alert(email);
+        alert(pwd);
+    }
+    return(
+        <div>
+            
+        <table>
+            <tbody>
+               
+                <tr>
+                    <td> Email : </td>
+                    <td> <input type="email" value={email} id="email" onChange={handleemail}/></td>
+                </tr>
+                <tr>
+                    <td> Password : </td>
+                    <td> <input type="password" value={pwd} id="pwd" onChange={handlepwd} /></td>
+                </tr>
+                <tr>
+                    <td> <button type="submit" onClick={handleSubmit}> Login </button></td>
+                </tr>
+            </tbody>
+        </table>
+        </div>
+    )
+}
+
+export default LoginPage;
+
