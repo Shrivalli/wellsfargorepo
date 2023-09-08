@@ -103,6 +103,28 @@ namespace EfCoreEg.Controllers
 }
 
 
+EF Core steps:
+
+1. Create API
+2. Install nuget packages
+	EFCore
+	EFCore Sql server
+	EFCore tools
+
+3. Open Pm Console
+
+Scaffold-DbContext "Server=(localdb)\MSSQLLocalDB;Database=loanwf;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -o Models
+
+
+In appsettings.json:
+ "ConnectionStrings": {
+      "DefaultConnection": "Server=Server=(localdb)\MSSQLLocalDB;Database=Fareportal;Trusted_Connection=True;"
+    },
+
+ Program.cs
+ builder.Services.AddDbContext<FareportalContext>(options =>
+       options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
 
 
 
